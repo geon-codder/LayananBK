@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="MENU"
+        android:textStyle="bold"
+        android:textColor="@color/biru"
+        android:layout_marginTop="72dp"
+        android:layout_gravity="center"/>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <Button
+        android:id="@+id/btnActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/btn_shape_round"
+        android:text="Activity"
+        android:textAllCaps="false"
+        android:textColor="@color/biru"
+        android:textSize="26sp"
+        />
+    <Button
+        android:id="@+id/btnProgres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/btn_shape_round"
+        android:text="Progres"
+        android:textAllCaps="false"
+        android:textColor="@color/biru"
+        android:textSize="26sp"
+        />
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/btn_shape_round"
+        android:text="Home"
+        android:textAllCaps="false"
+        android:textColor="@color/biru"
+        android:textSize="26sp"
+        />
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/btn_shape_round"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textColor="@color/biru"
+        android:textSize="26sp"
+        />
+
+
+
+</LinearLayout>

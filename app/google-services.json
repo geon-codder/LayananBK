@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "943284084924",
+    "firebase_url": "https://layananbk-787ad-default-rtdb.firebaseio.com",
+    "project_id": "layananbk-787ad",
+    "storage_bucket": "layananbk-787ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943284084924:android:1f8e20de36a75f6bd9b0b9",
+        "android_client_info": {
+          "package_name": "com.geco.layananbk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943284084924-0p8b1dvqehgia03ldmufs84qq8d93dsc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxC28oNo8bveagsdzign_0gPNKiF6hgyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943284084924-0p8b1dvqehgia03ldmufs84qq8d93dsc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
