@@ -15,6 +15,30 @@
         android:theme="@style/Theme.LayananBK"
         tools:targetApi="31">
         <activity
+            android:name=".EvaluasiUmumLayananDukunganSistemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluasiUmumLayananResponsifActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluasiUmumLayananPeminatandanPerencanaanIndividualActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluasiUmumLayananDasarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluasiProsesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SoalEvaluasiUmumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluasiUmumActivity"
+            android:exported="false" />
+        <activity
             android:name=".IsiEvaluasiLayananPeminatanDanPerencanaanIndividualActivity"
             android:exported="false" />
         <activity

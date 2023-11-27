@@ -14,8 +14,16 @@ class AktivitasActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.apply{
-            btnMulaiAktivitas.setOnClickListener {
+            tvDeskripsiAktivitas.setOnClickListener {
                 val intent = Intent(this@AktivitasActivity, DeskripsiAktivitasActivity::class.java)
+                startActivity(intent)
+            }
+            tvIsiEvaluasi.setOnClickListener {
+                val intent = Intent(this@AktivitasActivity, EvaluasiUmumActivity::class.java)
+                startActivity(intent)
+            }
+            btnKembaliKeMenu.setOnClickListener {
+                val intent = Intent(this@AktivitasActivity, MainActivity::class.java)
                 startActivity(intent)
             }
         }

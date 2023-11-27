@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var auth : FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,22 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
 
-
-
-            webView.webViewClient = WebViewClient()
-
-            // Load chart.html from assets folder
-//            val htmlFilePath = "file:///android_asset/chart.html"
-            webView.settings.allowFileAccess = true
-            webView.settings.javaScriptEnabled = true
-            webView.webViewClient = object : WebViewClient() {
-                override fun onPageFinished(view: WebView, url: String) {
-                    super.onPageFinished(view, url)
-                    view.loadUrl("javascript:console.log('WebView Loaded')")
-                }
-            }
-            val htmlFilePath = "file:///android_asset/chart.html"
-            webView.loadUrl(htmlFilePath)
 
             btnActivity.setOnClickListener {
                 val intent = Intent(this@MainActivity, AktivitasActivity::class.java)

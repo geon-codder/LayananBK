@@ -23,35 +23,21 @@ class IsiEvaluasiLayananDasarActivity : AppCompatActivity() {
 
 
     private var questions = arrayOf(
-        "1. Guru BK melakukan need assesment tentang layanan dasar?",
-        "2. Guru BK menjelaskan apa tujuan layanan dasar?",
-        "3. Guru BK menjelaskan tujuan pengembangan yang ingin dicapai?",
-        "4. Terdapat tujuan layanan dasar dalam program BK?",
-        "5. Program layanan dasar sesuai dengan need assesmen?",
-        "6. Layanan dasar dilakukan sesuai dengan perkembangan peserta didik?",
-        "7. Layanan dasar sesuai dengan visi dan misi sekolah?",
-        "8. Layanan yang dilakukan sesuai dengan Panduan Operasional Penyelenggaraan Bimbingan dan Konseling (POP BK)?",
-
-        // Evaluasi Input
-        "1. Layanan dasar yang diberikan berdampak jelas pada perkembangan siswa?",
-        "2. Strategi pemberian layanan dasar sudah sesuai dengan jumlah guru BK dan Jumlah siswa?",
-        "3. Strategi layanan sesuai dengan sarana prasarana yang tersedia?",
-        "4. Terdapat jadwal khusus dalam pemberian layanan dasar?",
-        "5. Terdapat media/alat yang digunakan dalam pemberian layanan dasar?",
-        "6. Terdapat teknik khusus  yang digunakan dalam layanan dasar?",
-        "7. Layanan dasar dilakukan oleh guru BK?",
-
-        // Evaluasi Proses
-        "1. Pelaksanaan layanan sudah sesuai jadwal yang telah dibuat?",
-        "2. Semua staf sekolah terlibat dalam kelancaran layanan?",
-        "3. Sarana dan prasarana yang disediakan dapat dimanfaatkan secara maksimal?",
-        "4. Terdapat hambatan dalam pelaksanaan layanan?",
-
-        //Evaluasi Produk
-        "1. Tujuan layanan telah tercapai sesuai dengan apa yang ditetapkan?",
-        "2. Terdapat hubungan antara prosedur layanan dengan hasil layanan?",
-        "3. Kebutuhan siswa telah terpenuhi dengan layanan dasar?",
-        "4. Terdapat hasil jangka panjang dari layanan dasar?"
+        "1. Saya memahami dengan baik tujuan yang diharapkan dari materi yang disampaikan" ,
+        "2. Suasana dalam layanan aktif dan menyenangkan",
+        "3. Saya mampu menjelaskan kembali materi layanan yang diberikan",
+        "4. Saya memperoleh banyak pengetahuan dan informasi dari materi yang disampaikan",
+        "5. Saya menyadari pentingnya bersikap sesuai dengan materi yang disampaikan",
+        "6. Saya meyakini diri akan lebih baik, apabila bersikap sesuai dengan materi yang disampaikan",
+        "7. Saya dapat mengembangkan perilaku yang lebih positif setelah mendapatkan materi yang disampaikan",
+        "8. Saya dapat mengubah perilaku sehingga kehidupan saya menjadi lebih teratur dan bermakna",
+        "9. Saya terbantu dalam penyelesaian masalah saya",
+        "10. Saya mendapat pemahaman positif setelah mengikuti layanan",
+        "11. Metode layanan yang digunakan membantu saya memahami alur dan materi layanan",
+        "12. Saya terbantu dalam merencanakan pengembangan keterampilan diri",
+        "13. Saya menjadi yakin bahwa saya mampu mengembangkan potensi/mengentaskan masalah",
+        "14. Saya memahami hal-hal penting untuk dipertimbangkan dalam mengambil keputusan",
+        "15. Saya menyadari pentingnya bersikap mandiri dalam setiap situasi"
         )
 
 
@@ -67,10 +53,10 @@ class IsiEvaluasiLayananDasarActivity : AppCompatActivity() {
     private fun initViews() {
         binding.apply {
             tvQuestion.text = questions[qIndex]
-            radioButton1.text = "Sangat Setuju"
-            radioButton2.text = "Setuju"
-            radioButton3.text = "Tidak Setuju"
-            radioButton4.text = "Sangat Tidak Setuju"
+            radioButton1.text = "Sangat Baik"
+            radioButton2.text = "Baik"
+            radioButton3.text = "Cukup baik"
+            radioButton4.text = "Kurang baik"
 
             // check options selected or not
             // if selected then selected option skor or wrong
@@ -92,19 +78,15 @@ class IsiEvaluasiLayananDasarActivity : AppCompatActivity() {
     private fun showNextQuestion() {
         checkAnswer()
         binding.apply {
-            
-            if (qIndex == 8){
-                tvTitle.text = "Evaluasi Input"
-            }else if (qIndex == 15){
-                tvTitle.text = "Evaluasi Proses"
-            }else if (qIndex == 19){
-                tvTitle.text = "Evaluasi Produk"
-            }
             if (qIndex <= questions.size - 1) {
                 tvQuestion.text = questions[qIndex]
             } else {
-
                 //kalau soal sudah selesai semua
+                val jawabanLDno1 = inputJawabanLDno1.text.toString()
+                val jawabanLDno2 = inputJawabanLDno2.text.toString()
+                val jawabanLDno3 = inputJawabanLDno3.text.toString()
+                val jawabanLDno4 = inputJawabanLDno4.text.toString()
+
                 skorLayananDasar = skor
                 //TODO tentukan kategori berdasarkan skornya
 
@@ -112,7 +94,15 @@ class IsiEvaluasiLayananDasarActivity : AppCompatActivity() {
                 val myRef = database.getReference("dataUser")
                 val getUserEmail = Firebase.auth.currentUser?.email.toString()
                 myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
-                    .child("Isi Evaluasi").child("skorLayananDasar").setValue(skorLayananDasar)
+                    .child("Isi Evaluasi Layanan Dasar").child("jawabanLDno1").setValue(jawabanLDno1)
+                myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
+                    .child("Isi Evaluasi Layanan Dasar").child("jawabanLDno2").setValue(jawabanLDno2)
+                myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
+                    .child("Isi Evaluasi Layanan Dasar").child("jawabanLDno3").setValue(jawabanLDno3)
+                myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
+                    .child("Isi Evaluasi Layanan Dasar").child("jawabanLDno4").setValue(jawabanLDno4)
+                myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
+                    .child("Isi Evaluasi Layanan Dasar").child("skorLayananDasar").setValue(skorLayananDasar)
 
                 val intent = Intent(this@IsiEvaluasiLayananDasarActivity, IsiEvaluasiActivity::class.java)
                 startActivity(intent)
@@ -136,16 +126,16 @@ class IsiEvaluasiLayananDasarActivity : AppCompatActivity() {
                     findViewById<RadioButton>(radiogrp.checkedRadioButtonId)
                 val checkAnswer = checkRadioButton.text.toString()
                 when (checkAnswer) {
-                    "Sangat Setuju" -> {
+                    "Sangat Baik" -> {
                         skor += 4
                     }
-                    "Setuju" -> {
+                    "Baik" -> {
                         skor += 3
                     }
-                    "Tidak Setuju" -> {
+                    "Cukup baik" -> {
                         skor += 2
                     }
-                    "Sangat Tidak Setuju" -> {
+                    "Kurang baik" -> {
                         skor += 1
                     }
                 }

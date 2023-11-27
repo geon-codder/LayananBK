@@ -40,7 +40,7 @@ class DeskripsiAktivitasActivity : AppCompatActivity() {
                         .child("DeskripsiAktivitas").child("isiKonsultasi").setValue(isiKonsultasi)
 
 
-                    val intent = Intent(this@DeskripsiAktivitasActivity, IsiEvaluasiActivity::class.java)
+                    val intent = Intent(this@DeskripsiAktivitasActivity, AktivitasActivity::class.java)
                     startActivity(intent)
                 }
 

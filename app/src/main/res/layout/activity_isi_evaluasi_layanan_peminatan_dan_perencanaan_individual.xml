@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/bckgrnd"
     tools:context=".IsiEvaluasiLayananPeminatanDanPerencanaanIndividualActivity">
 
     <LinearLayout
@@ -15,7 +16,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:gravity="center"
             android:background="@drawable/btn_shape_round"
             android:text="Layanan Peminatan dan Perencanaan Individual"
@@ -24,10 +25,12 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:textAllCaps="false"
-            android:textColor="@color/oren"
+            android:textColor="@color/black"
             android:textSize="26sp"/>
 
+
         <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -37,15 +40,143 @@
             android:background="@drawable/rounded_rectangle">
 
             <TextView
-                android:id="@+id/tvTitle"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/biru"
-                android:text="Evaluasi Konteks"
+                android:text="Isilah pertanyaan berikut dengan jawaban singkat dan jelas !"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/biru"
+                    android:text="Apa yang anda ketahui tentang layanan peminatan dan perencanaan individual?"
+                    />
+                <EditText
+                    android:id="@+id/inputJawabanLPPno1"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textSize="14sp"
+                    android:textColor="@color/biru"
+                    android:hint="Jawab di sini"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/biru"
+                    android:text="Apa manfaat yang anda dapatkan setelah mengikuti layanan?"
+                    />
+                <EditText
+                    android:id="@+id/inputJawabanLPPno2"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textSize="14sp"
+                    android:textColor="@color/biru"
+                    android:hint="Jawab di sini"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/biru"
+                    android:text="Apa kendala/hambatan yang anda rasakan saat mengikuti layanan?"
+                    />
+                <EditText
+                    android:id="@+id/inputJawabanLPPno3"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textSize="14sp"
+                    android:textColor="@color/biru"
+                    android:hint="Jawab di sini"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/biru"
+                    android:text="Apa materi terkait layanan peminatan dan perencanaan individual yang masih anda
+butuhkan?"
+                    />
+                <EditText
+                    android:id="@+id/inputJawabanLPPno4"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textSize="14sp"
+                    android:textColor="@color/biru"
+                    android:hint="Jawab di sini"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="60dp"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_rectangle">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/biru"
+                android:text="Pilihlah jawaban dari pernyataan berikut:"
                 />
 
             <LinearLayout
@@ -53,16 +184,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="vertical">
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:textColor="@color/biru"-->
-                <!--                    android:text="1. Guru BK melakukan need assesment tentang layanan dasar?"-->
-                <!--                    />-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,7 +197,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="16dp"
                         android:paddingStart="22dp"
                         android:paddingTop="30dp"
@@ -154,19 +277,6 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnIsiEvaluasiSelesai"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/btn_shape_round"
-            android:text="Selesai"
-            android:textAllCaps="false"
-            android:textColor="@color/biru"
-            android:textSize="26sp"
-            />
     </LinearLayout>
 
 

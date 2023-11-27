@@ -15,43 +15,28 @@ class IsiEvaluasiLayananResponsifActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIsiEvaluasiLayananResponsifBinding
 
     private var skorLayananResponsif = 0
-    private var correct = 0
+    private var skor = 0
     private var skip = 0
     private var qIndex = 0
-    private var updateQueNo = 1
 
 
     private var questions = arrayOf(
-        "1. Guru BK melakukan need assesment tentang layanan responsif?",
-        "2. Guru BK menjelaskan apa tujuan layanan responsif?",
-        "3. Guru BK menjelaskan tujuan pengembangan yang ingin dicapai?",
-        "4. Terdapat tujuan layanan responsif dalam program BK?",
-        "5. Program layanan responsif sesuai dengan need assesmen?",
-        "6. Layanan responsif dilakukan sesuai dengan perkembangan peserta didik?",
-        "7. Layanan responsif sesuai dengan visi dan misi sekolah?",
-        "8. Layanan yang dilakukan sesuai dengan Panduan Operasional Penyelenggaraan Bimbingan dan Konseling (POP BK)?",
+        "1. Saya memahami dengan baik tujuan yang diharapkan dari materi yang disampaikan",
+        "2. Suasana dalam layanan aktif dan menyenangkan",
+        "3. Saya mampu menjelaskan kembali materi layanan yang diberikan",
+        "4. Saya memperoleh banyak pengetahuan dan informasi dari materi yang disampaikan",
+        "5. Saya menyadari pentingnya bersikap sesuai dengan materi yang disampaikan",
+        "6. Saya meyakini diri akan lebih baik, apabila bersikap sesuai dengan materi yang disampaikan",
+        "7. Saya dapat mengembangkan perilaku yang lebih positif setelah mendapatkan materi yang disampaikan",
+        "8. Saya dapat mengubah perilaku sehingga kehidupan saya menjadi lebih teratur dan bermakna",
+        "9. Saya terbantu dalam penyelesaian masalah saya",
+        "10. Saya mendapat pemahaman positif setelah mengikuti layanan",
+        "11. Metode layanan yang digunakan membantu saya memahami alur dan materi layanan",
+        "12. Saya terbantu dalam merencanakan pengembangan keterampilan diri",
+        "13. Saya menjadi yakin bahwa saya mampu mengembangkan potensi/mengentaskan masalah",
+        "14. Saya memahami hal-hal penting untuk dipertimbangkan dalam mengambil keputusan",
+        "15. Saya menyadari pentingnya bersikap mandiri dalam setiap situasi"
 
-        // Evaluasi Input
-        "1. Layanan responsif yang diberikan berdampak jelas pada perkembangan siswa?",
-        "2. Strategi pemberian layanan responsif sudah sesuai dengan jumlah guru BK dan Jumlah siswa?",
-        "3. Strategi layanan sesuai dengan sarana prasarana yang tersedia?",
-        "4. Terdapat jadwal khusus dalam pemberian layanan  responsif?",
-        "5. Terdapat media/alat yang digunakan dalam pemberian layanan responsif?",
-        "6. Terdapat teknik khusus yang digunakan dalam layanan responsif?",
-        "7. Layanan responsif dilakukan oleh guru BK?",
-
-
-        // Evaluasi Proses
-        "1. Pelaksanaan layanan sudah sesuai jadwal yang telah dibuat?",
-        "2. Semua staf sekolah terlibat dalam kelancaran layanan?",
-        "3. Sarana dan prasarana yang disediakan dapat dimanfaatkan secara maksimal?",
-        "4. Terdapat hambatan dalam pelaksanaan layanan?",
-
-        //Evaluasi Produk
-        "1. Tujuan layanan telah tercapai sesuai dengan apa yang ditetapkan?",
-        "2. Terdapat hubungan antara prosedur layanan dengan  hasil layanan?",
-        "3. Kebutuhan siswa telah terpenuhi dengan layanan responsif?",
-        "4. Terdapat hasil jangka panjang dari layanan responsif?"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,10 +50,10 @@ class IsiEvaluasiLayananResponsifActivity : AppCompatActivity() {
     private fun initViews() {
         binding.apply {
             tvQuestion.text = questions[qIndex]
-            radioButton1.text = "Sangat Setuju"
-            radioButton2.text = "Setuju"
-            radioButton3.text = "Tidak Setuju"
-            radioButton4.text = "Sangat Tidak Setuju"
+            radioButton1.text = "Sangat Baik"
+            radioButton2.text = "Baik"
+            radioButton3.text = "Cukup baik"
+            radioButton4.text = "Kurang baik"
 
             // check options selected or not
             // if selected then selected option correct or wrong
@@ -90,27 +75,31 @@ class IsiEvaluasiLayananResponsifActivity : AppCompatActivity() {
     private fun showNextQuestion() {
         checkAnswer()
         binding.apply {
-
-            if (qIndex == 8){
-                tvTitle.text = "Evaluasi Input"
-            }else if (qIndex == 15){
-                tvTitle.text = "Evaluasi Proses"
-            }else if (qIndex == 19){
-                tvTitle.text = "Evaluasi Produk"
-            }
             if (qIndex <= questions.size - 1) {
                 tvQuestion.text = questions[qIndex]
             } else {
-
                 //kalau soal sudah selesai semua
-                skorLayananResponsif = correct
+                val jawabanLRno1 = inputJawabanLRno1.text.toString()
+                val jawabanLRno2 = inputJawabanLRno2.text.toString()
+                val jawabanLRno3 = inputJawabanLRno3.text.toString()
+                val jawabanLRno4 = inputJawabanLRno4.text.toString()
+                
+                skorLayananResponsif = skor
                 //TODO tentukan kategori berdasarkan skornya
 
                 val database = FirebaseDatabase.getInstance()
                 val myRef = database.getReference("dataUser")
                 val getUserEmail = Firebase.auth.currentUser?.email.toString()
                 myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
-                    .child("Isi Evaluasi").child("skorLayananResponsif").setValue(skorLayananResponsif)
+                    .child("Isi Evaluasi Layanan Responsif").child("jawabanLRno1").setValue(jawabanLRno1)
+                myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
+                    .child("Isi Evaluasi Layanan Responsif").child("jawabanLRno2").setValue(jawabanLRno2)
+                myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
+                    .child("Isi Evaluasi Layanan Responsif").child("jawabanLRno3").setValue(jawabanLRno3)
+                myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
+                    .child("Isi Evaluasi Layanan Responsif").child("jawabanLRno4").setValue(jawabanLRno4)
+                myRef.child("users").child(encodeUserEmail(getUserEmail).toString()).child("Layanan")
+                    .child("Isi Evaluasi Layanan Responsif").child("skorLayananResponsif").setValue(skorLayananResponsif)
 
                 val intent = Intent(this@IsiEvaluasiLayananResponsifActivity, IsiEvaluasiActivity::class.java)
                 startActivity(intent)
@@ -134,17 +123,17 @@ class IsiEvaluasiLayananResponsifActivity : AppCompatActivity() {
                     findViewById<RadioButton>(radiogrp.checkedRadioButtonId)
                 val checkAnswer = checkRadioButton.text.toString()
                 when (checkAnswer) {
-                    "Sangat Setuju" -> {
-                        correct += 4
+                    "Sangat Baik" -> {
+                        skor += 4
                     }
-                    "Setuju" -> {
-                        correct += 3
+                    "Baik" -> {
+                        skor += 3
                     }
-                    "Tidak Setuju" -> {
-                        correct += 2
+                    "Cukup baik" -> {
+                        skor += 2
                     }
-                    "Sangat Tidak Setuju" -> {
-                        correct += 1
+                    "Kurang baik" -> {
+                        skor += 1
                     }
                 }
             }

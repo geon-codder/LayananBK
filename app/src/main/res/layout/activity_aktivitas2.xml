@@ -18,7 +18,6 @@
         android:layout_gravity="center"/>
 
     <Button
-        android:id="@+id/btnMulaiAktivitas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -31,6 +30,7 @@
         android:textColor="@color/biru"
         android:textSize="26sp"
         />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,6 +45,7 @@
             android:layout_marginStart="30dp"/>
 
         <TextView
+            android:id="@+id/tvDeskripsiAktivitas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Deskripsi Aktivitas"
@@ -68,6 +69,7 @@
             android:layout_marginStart="30dp"/>
 
         <TextView
+            android:id="@+id/tvIsiEvaluasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Isi Evaluasi"
@@ -77,6 +79,7 @@
             android:layout_marginStart="20dp"
             />
     </LinearLayout>
+
 
     <Button
         android:id="@+id/btnKembaliKeMenu"

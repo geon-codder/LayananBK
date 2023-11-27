@@ -1,40 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Google Chart</title>
-    <!-- Load Google Charts library -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['bar']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Hari');
-            data.addColumn('number', 'Pendapatan');
-            data.addRows([
-                ['Senin', 200],
-                ['Selasa', 400],
-                ['Rabu', 600],
-                ['Kamis', 800],
-                ['Jumat', 1000]
-            ]);
-
-            var options = {
-                chart: {
-                    title: 'Pendapatan Mingguan',
-                    subtitle: 'dalam USD'
-                }
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('chart_div'));
-
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
-    </script>
+    <title>Data Chart</title>
 </head>
 <body>
-<div id="chart_div" style="width: 100%; height: 400px;"></div>
+<canvas id="myChart"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+<script>
+        var ctx = document.getElementById("myChart").getContext("2d");
+
+        var data = {
+            labels: ["Data 1", "Data 2", "Data 3"],
+            datasets: [{
+                label: "Data",
+                data: [10, 20, 30],
+                backgroundColor: ["#ff0000", "#00ff00", "#0000ff"]
+            }]
+        };
+
+        var myChart = new Chart(ctx, {
+            type: "bar",
+            data: data,
+            options: {
+                title: {
+                    text: "Data Chart"
+                }
+            }
+        });
+    </script>
 </body>
 </html>
